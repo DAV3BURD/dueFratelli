@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* Vet ej */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #303030;
+    margin: 10px 20px;
+    width: 100%;
+    height: 100%;
+}
+
+#loginBox{
+    border-width: 1px;
+    border-color: red;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    
+}
