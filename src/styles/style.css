@@ -9,3 +9,24 @@ body {
     background-color: #303030;
     margin: 10px 20px;
 }
+
+.uploadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(196, 11, 11);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    font-size: 3rem;
+    cursor: pointer;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.uploadButton:hover {
+    background-color: rgb(184, 11, 11);
+    transition: all 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}
