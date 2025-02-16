@@ -18,12 +18,16 @@
                 <input type="password" id="passwordBox" class="custom" placeholder="Password">
                 <input type="text" id="usernameBox" class="custom" placeholder="Username">
             </div>
-            <button id="signUpButton" onclick="test();">Sign up</button>
-            <p>Already have an account? <a href="signIn.html">Log in</a></p>
+            <button id="signUpButton">Sign up</button>
+            <p id="emailFormatWrong" class="somethingWrong"></p>
+            <p id="passwordFormatWrong" class="somethingWrong"></p>
+            <p id="p">Already have an account? <a href="signIn.html">Log in</a></p>
         </div>
     </div>
 
-    <script src="../script/signUp.js"></script>
+    <script src="../script/View/SignUp.js"></script>
+    <script src="../script/Controller/UserController.js"></script>
+    <script src="../script/Model/User.js"></script>
 </body>
 
 </html>
