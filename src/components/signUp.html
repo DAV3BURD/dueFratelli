@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up screen</title>
-    <link rel="stylesheet" href="../styles/loginStyle.css">
+    <link rel="stylesheet" href="../styles/signUp.css">
 </head>
 
 <body>
@@ -14,14 +14,16 @@
         <div id="innerBox">
             <h1 id="title">Sign up</h1>
             <div id="boxForInput">
-                <input type="text" id="usernameBox" class="custom" placeholder="Username">
-                <input type="password" id="passwordBox" class="custom" placeholder="Password">
                 <input type="email" id="emailBox" class="custom" placeholder="Email">
+                <input type="password" id="passwordBox" class="custom" placeholder="Password">
+                <input type="text" id="usernameBox" class="custom" placeholder="Username">
             </div>
-            <button id="singUpButton">Sign up</button>
-            <p>Already have an account? <a href="logIn.html">Log in</a></p>
+            <button id="signUpButton" onclick="test();">Sign up</button>
+            <p>Already have an account? <a href="signIn.html">Log in</a></p>
         </div>
     </div>
+
+    <script src="../script/signUp.js"></script>
 </body>
 
 </html>

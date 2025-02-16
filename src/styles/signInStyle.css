@@ -25,7 +25,7 @@ body {
     left: 0;
 }
 
-#signUpBox{
+#signInBox{
     position: relative;
     background: rgba(0, 0, 0, 0.4);
     width: 400px;
@@ -54,7 +54,7 @@ body {
     flex-direction: column;
 }
 
-#usernameBox, #passwordBox, #emailBox {
+#passwordBox, #emailBox {
     border: solid;
     border-width: 1px;
     border-color: rgb(122, 122, 122);
@@ -89,7 +89,7 @@ input.custom::placeholder{
     color: #bbb;
 }
 
-#singUpButton{
+#signInButton{
     width: 100%;
     padding: 12px;
     background: #F13C03;
@@ -99,21 +99,87 @@ input.custom::placeholder{
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.5s;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
-#singUpButton:hover{
+#signInButton:hover{
     background-color: #c75b3a;
 }
 
-#singUpButton:active{
+#signInButton:active{
     background-color: #ff9271;
     box-shadow: 0 5px #666;
 }
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
 
-p {
+.options p {
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.forgot-password{
+    text-align: center;
+    flex-grow: 1;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.remember{
+    display: flex;
+}
+
+.remember label {
+    padding-left: 5px;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 10px;
+}
+
+.remember input[type="checkbox"]{
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: #d5d5d5;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+.remember input[type="checkbox"]::after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 15px;
+    color: #F13C03;
+    display: none;
+}
+
+.remember input[type="checkbox"]:hover {
+    background-color: #a5a5a5;
+    transition: all 0.5s;
+
+}
+
+.remember input[type="checkbox"]:checked {
+    background-color: #d5d5d5;
+    transition: all 0.5s;
+
+}
+
+.remember input[type="checkbox"]:checked::after {
+    display: block;
+    transition: all 0.5s;
+
 }
 
 a{
@@ -129,7 +195,4 @@ a:hover {
 
 a:active {
     color: #a33a2a;
-
 }
-
-

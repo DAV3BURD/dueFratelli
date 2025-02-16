@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* Vet ej */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #303030;
+    margin: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+}
+
+#signUpBox {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    width: 400px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 4px;
+    color: white;
+    overflow: hidden;
+}
+
+#innerBox {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+#title {
+    margin-bottom: 15px;
+    font-size: 30px;
+    color: #F13C03;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#boxForInput {
+    display: flex;
+    flex-direction: column;
+}
+
+#usernameBox,
+#passwordBox,
+#emailBox {
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(122, 122, 122);
+    border-radius: 4px;
+    background: #333;
+    color: white;
+    width: 100%;
+    transition: 0.3;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+input.custom {
+    caret-color: #F13C03;
+    /*Text markör*/
+    font:
+        16px "Helvetica",
+        "Arial",
+        "sans-serif";
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+input.custom:focus {
+    box-shadow: 5px 5px 5px black;
+    border: 1px solid #e50914
+}
+
+input.custom::placeholder {
+    color: #bbb;
+}
+
+#signUpButton {
+    width: 100%;
+    padding: 12px;
+    background: #F13C03;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.5s;
+    margin-bottom: 15px;
+}
+
+#signUpButton:hover {
+    background-color: #c75b3a;
+}
+
+#signUpButton:active {
+    background-color: #ff9271;
+    box-shadow: 0 5px #666;
+}
+
+p {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a {
+    color: #F13C03;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #c75b3a;
+}
+
+a:active {
+    color: #a33a2a;
+
+}
