@@ -1,13 +1,8 @@
-* {
-    box-sizing: border-box;
-    overflow-x: hidden; /* Vet ej */
-    margin: 0;
-    padding: 0;
-}
+
 
 body {
     background-color: #303030;
-    margin: 10px 20px;
+   
 }
 
 .uploadButton {
@@ -17,7 +12,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 100px;
-    font-size: 3rem;
+    font-size: 1rem;
     cursor: pointer;
     font-family: 'Kumbh Sans', sans-serif;
 }
@@ -30,3 +25,192 @@ body {
 .hidden {
     display: none;
 }
+
+
+
+
+
+/* HÄR KOMMER KOD FRÅN YT video, mycket onödigt */
+*{
+    box-sizing:  border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Kumbh Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    height: 80px;
+    z-index: 1000;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+}
+
+#navbar-logo{
+    color: #d10a0a; 
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 4rem;
+}
+
+.navbar__menu{
+    display: flex;
+    justify-content: center;
+    list-style: menu;
+    margin: 0 auto;
+
+}
+
+.navbar__item{
+    height: 80px;
+
+}
+
+.navbar__links{
+    color: aliceblue;
+    text-decoration: none;
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+
+}
+
+.navbar__signIn {
+    color: aliceblue;
+    text-decoration: none;
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+
+}
+
+.navbar__links:hover{
+    color: #d10a0a;
+    transition: all 0.1s ease-in-out;
+}
+.navbar__signIn:hover{
+    color: #d10a0a;
+    transition: all 0.1s ease-in-out;
+}
+
+.navbar__btn{
+    display: flex;
+    align-items: center;
+}
+
+.navbar__btn.mobile{
+    display: none;
+}
+
+.navbar__btn.desktop{
+    display: flex;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(196, 11, 11);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 100px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.button:hover{
+    background: #a70f0f;
+    transition: all 0.1s ease-in-out;
+}
+
+.navbar__toggle{
+    display: none;
+
+}
+
+@media screen and (max-width: 968px){
+    .fa-bars {
+        line-height: normal !important;
+    }
+
+    .navbar__toggle{
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ffffff;
+        z-index: 10;
+        padding: 0;
+        font-size: 1.5rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+     }
+
+     .navbar__menu{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100% - 80px);
+        opacity: 0;
+        transition: all 0.5s ease;
+        background-color: #131313;
+     }
+
+     .navbar__links{
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+     }
+
+     .navbar__menu.active {
+        left: 0;
+        opacity: 1;
+     }
+
+    .navbar__item{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+
+    /* Sign Up Button */
+
+    .navbar__btn.desktop {
+        display: none;
+
+    }
+
+    .navbar__btn.mobile{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 2rem;
+        width: 100%;
+    }
+
+    .button{
+        width: 80%;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+}
+
+

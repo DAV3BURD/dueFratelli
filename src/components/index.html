@@ -12,20 +12,34 @@
 </head>
 
 <body>
-    <div>git 
-        <h1>Hello</h1>
-    </div>
-    <div id="Login">
-        <a href="login.html">
-            Login
-        </a>
-    </div>
-    <div id="Chooser">
-        <input type="file" id="fileInput" class="hidden"> <!-- hidden är en ful sak som försvinner mha CSS -->
-        <label for="fileInput" class="uploadButton">Choose File</label> 
-    </div>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main Navigation">
+            <div class="navbar__container">
+                <a href="index.html" id="navbar-logo">DueFratelli</a>
+                    <ul class="navbar__menu">
+                        <li class="navbar__item">
+                            <a href="index.html" class="navbar__links">Home</a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="signIn.html" class="navbar__signIn" id="signIn">Sign in</a>
+                        </li>
+                    </ul>
+
+                <div class="navbar__btn desktop">
+                    <a href="/" class="button">Help?</a>
+                </div>
+                <div id="Chooser">
+                    <input type="file" id="fileInput" class="hidden"> <!-- hidden är en ful sak som försvinner mha CSS -->
+                    <label for="fileInput" class="uploadButton">Choose File</label> 
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
     <script src="app.js"></script>
     
+
 </body>
 
 </html>
