@@ -1,18 +1,27 @@
 /**
- * Controller class for User maybe handle 
+ * Controller class for User 
  */
 
 class UserController {
+    constructor() {
+        
+    }
 
-    static handleSignUp(email, password, username) {
-        const newUser = new User(email, password, username);
+    handleUserInput(email, password, username) {
+        // Skapa en användare med den inmatade informationen
+        const user = new User(email, password, username);
+        
+        if (user.isValid()) {
 
-        if (newUser.isValid()){
-            /*
-            Denna kan då ändras till sendToBackEnd tex för här inne är användaren  godkännd
-             */
-            newUser.yey()
+            this.view.updateUI(user);
+            this.view.showSuccessMessage()
+        } else {
+            // Om användaren inte är giltig, visa felmeddelanden
+            this.view.showErrorMessages(user);
         }
     }
 
+    setView(view) {
+        this.view = view;
+    }
 }

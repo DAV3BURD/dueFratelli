@@ -1,6 +1,6 @@
 /**
- * Class to create a new User
- * som ska flyttas till Model
+ * Class for the creating and handle a user. This class is used to create a new user and that information will be sent to the backend.
+ *  
  */
 
 class User {
@@ -16,27 +16,21 @@ class User {
 
     }
 
-    // Function to check if password is valid
+    /**
+     * Function to see if the password the user enters is valid.
+     * @returns true if the password length is more then 8 letters and if the containsSpecialChar return true.
+     */
     checkPassword() {
-        const passwordElement = document.getElementById("passwordFormatWrong");
-        passwordElement.innerHTML = ""
-            
-        if (this.password.length < 8) {
-            passwordElement.innerHTML = `<p>Password to short</p>`;
-            return false;
-        }
-        
-        if(!this.containsSpecialChar()) {
-            passwordElement.innerHTML = `<p>Password must contain special character</p>`;
-            return false
-        }
-
-        return true;
+        return this.password.length >= 8 && this.containsSpecialChar();
     }
-    
-    // Function to see if the password contains a special character
+
+    /**
+     * Function to check if the password the user enters contains a special character.
+     * @returns true if the password contains a special character.
+     */
     containsSpecialChar() {
-        const specialChar = "!@#$%^&*()\-+={}[\]:;'<>,.?\/|\\";
+        const specialChar = "!@#$%^&*()\-+={}[\]:;'<>,.?\/|\\"; 
+
         for (let i = this.password.length - 1; i >= 0; i--) {
             if (specialChar.includes(this.password[i])) {
                 return true;
@@ -45,41 +39,26 @@ class User {
         return false;
     }
 
-    // Function to see if the email is valid
+    /**
+     * 
+     * @returns true if the email the 
+     */
     checkEmail() {
-
-        console.log("Email kör")
-        const emailElement = document.getElementById("emailFormatWrong");
-        emailElement.innerHTML = "";
-
-        if (this.email.trim() === "") {
-            emailElement.innerHTML = `<p>Email field cannot be empty</p>`;
-            return false;
-        }
-
-        let emailCorrect = false;
-
         for (let i = this.email.length - 1; i >= 0; i--){
-            if (this.email[i] === "@") {
-                emailCorrect = true;
-                break;
+            if (this.email[i] === "@" && this.email.trim() !== "") {
+                return true;
             }
         }
-        
-        if (!emailCorrect) {
-            emailElement.innerHTML = `<p> Email format wrong </p>`;
-            return false;
-        }
-
-        return true;
+        return false;
     }
 
-    // Function that returns the values of password and email to verify the users input
+    /**
+     * Function that calls the checkPassword() and the checkEmail() functions. 
+     * @returns true if checkPassword() and checkEmail() booth return true.
+     */
     isValid() {
         return this.isPasswordValid && this.isEmailValid;
     }
 
-    yey() {
-        alert("Account created");
-    }
+    
 }
