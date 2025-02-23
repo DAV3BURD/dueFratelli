@@ -23,17 +23,6 @@ class UserView {
         this.controller.handleUserInput(email, password, username);
     }
 
-    /**
-     * Function that updates the text under the input boxen depending on isValid value. For password.
-     * @param {*} isValid True or false
-     */
-    updatePasswordFeedback(isValid) {
-        if (isValid) {
-            this.passwordElement.innerHTML = "";
-        } else {
-            this.passwordElement.innerHTML = "<p>Password is invalid</p>";
-        }
-    }
 
     /**
      * Function that updates the text under the input boxes depending on isValid value. For Email
@@ -48,13 +37,25 @@ class UserView {
     }
 
     /**
+     * Function that updates the text under the input boxen depending on isValid value. For password.
+     * @param {*} isValid True or false
+     */
+    updatePasswordFeedback(isValid) {
+        if (isValid) {
+            this.passwordElement.innerHTML = "";
+        } else {
+            this.passwordElement.innerHTML = "<p>Password is invalid</p>";
+        }
+    }
+
+    /**
      * Function that calls the updatePasswordFeedback and updateEmailFeedback to update the p tag under the input boxes.
      * Called from controller.
      * @param {*} user 
      */
-    updateUI(user) {
-        this.updatePasswordFeedback(user.isPasswordValid);
-        this.updateEmailFeedback(user.isEmailValid);
+    updateUI({ isEmailValid, isPasswordValid }) {
+        this.updateEmailFeedback(isEmailValid);
+        this.updatePasswordFeedback(isPasswordValid);
     }
 
     /**
@@ -63,17 +64,6 @@ class UserView {
     showSuccessMessage() {
         alert("Account created");
     }
-
-    /**
-     * Function that shows an error message is the value the user enter is not valid.
-     * Called form controller
-     * @param {*} user 
-     */
-    showErrorMessages(user) {
-        this.updatePasswordFeedback(user.isPasswordValid);
-        this.updateEmailFeedback(user.isEmailValid);
-    }
-
     
     /**
      * Function to connect view to controller. Called in the Main class.

@@ -10,10 +10,26 @@ class User {
         this.password = password;
         this.username = username;
 
-        // Validate password and Email Boolean
-        this.isPasswordValid = this.checkPassword(); 
-        this.isEmailValid = this.checkEmail();
+        this.userService = new UserService();
 
+        // Validate password and Email Boolean
+        this._isEmailValid = this.checkEmail();
+        this._isPasswordValid = this.checkPassword();
+
+    }
+
+    /**
+     * Getter function for the emailValidate
+     */
+    get isEmailValid() {
+        return this._isEmailValid;
+    }
+
+    /**
+     * Getter function for the passwordValidate
+     */
+    get isPasswordValid() {
+        return this._isPasswordValid;
     }
 
     /**
@@ -40,7 +56,7 @@ class User {
     }
 
     /**
-     * 
+     * Checks the email length is not zero and that the it contains @
      * @returns true if the email the 
      */
     checkEmail() {
@@ -57,7 +73,15 @@ class User {
      * @returns true if checkPassword() and checkEmail() booth return true.
      */
     isValid() {
+        //this.updateValidation();
         return this.isPasswordValid && this.isEmailValid;
+    }
+
+    /**
+     * Function that will be called upon if the user credentials is valid. The function calls 
+     */
+    async registerUser() {
+        this.userService.login(this.email, this.password, this.username);
     }
 
     
