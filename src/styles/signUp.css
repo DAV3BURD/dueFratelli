@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     overflow-x: hidden;
-    /* Vet ej */
     margin: 0;
     padding: 0;
 }
@@ -14,6 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: 'Atkinson', sans-serif;
 }
 
 .overlay {
@@ -43,10 +43,8 @@ body {
 
 #title {
     margin-bottom: 15px;
-    font-size: 30px;
+    font-size: 26px;
     color: #F13C03;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 
 #boxForInput {
@@ -54,9 +52,26 @@ body {
     flex-direction: column;
 }
 
-#usernameBox,
-#passwordBox,
-#emailBox {
+#emailBox{
+    margin-bottom: 10px;
+}
+#passwordBox{
+    margin-bottom: 10px;
+}
+#usernameBox {
+    margin-bottom: 10px;
+}
+
+input.custom {
+    caret-color: #F13C03;
+    /*Text markör*/
+    font-size: 16px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
     border: solid;
     border-width: 1px;
     border-color: rgb(122, 122, 122);
@@ -66,31 +81,79 @@ body {
     width: 100%;
     transition: 0.3;
     padding: 12px;
-    margin-bottom: 15px;
-}
-
-input.custom {
-    caret-color: #F13C03;
-    /*Text markör*/
-    font:
-        16px "Helvetica",
-        "Arial",
-        "sans-serif";
-    padding: 10px;
-    width: 250px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border 0.3s ease-in-out;
 }
 
 input.custom:focus {
     box-shadow: 5px 5px 5px black;
-    border: 1px solid #e50914
+    border: 1px solid #F13C03
 }
 
 input.custom::placeholder {
     color: #bbb;
+}
+
+#password-checklist {
+    display: none;
+    opacity: 0;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+    margin-bottom: 10px;
+}
+
+#password-checklist.show {
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    #password-checklist {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+.checklist{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.list-item{
+    padding: 4px 25px;
+    font-size: 13px;
+    color: red;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* gap mellan x och namn*/
+}
+
+.list-item::before {
+    content: "✖";
+    color: red;
+    font-weight: bold;
+}
+
+.valid{
+    color: #28a745;
+}
+
+.valid::before{
+    content: "✔";
+    color: #28a745;
+    font-weight: bold
 }
 
 #signUpButton {
@@ -118,13 +181,61 @@ input.custom::placeholder {
 .somethingWrong{
     margin-bottom: 15px;
     font-size: 14px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(156, 0, 0);
+}
+
+.remember {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.remember label {
+    font-size: 16px;
+    padding-right: 10px;
+}
+
+.remember input[type="checkbox"] {
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    background-color: #d5d5d5;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+.remember input[type="checkbox"]::after {
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 15px;
+    color: #F13C03;
+    display: none;
+    font-family: "Font Awesome 5 Free";
+}
+
+.remember input[type="checkbox"]:hover {
+    background-color: #a5a5a5;
+    transition: all 0.5s;
+
+}
+
+.remember input[type="checkbox"]:checked {
+    background-color: #d5d5d5;
+    transition: all 0.5s;
+
+}
+
+.remember input[type="checkbox"]:checked::after {
+    display: block;
+    transition: all 0.5s;
+
 }
 
 #p {
     font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 a {

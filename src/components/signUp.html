@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up screen</title>
     <link rel="stylesheet" href="../styles/signUp.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
@@ -15,12 +20,24 @@
             <h1 id="title">Sign up</h1>
             <div id="boxForInput">
                 <input type="email" id="emailBox" class="custom" placeholder="Email">
-                <input type="password" id="passwordBox" class="custom" placeholder="Password">
+                <input type="password" id="passwordBox" class="custom" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                
+                <div id="password-checklist">
+                   <ul class="checklist">
+                        <li class="list-item" id="length">Minimum 8 character</li>
+                        <li class="list-item" id="number">A number</li>
+                        <li class="list-item" id="uppercase">A uppercase letter</li>
+                        <li class="list-item" id="specialChar">One special character</li>
+                   </ul>
+                </div>
                 <input type="text" id="usernameBox" class="custom" placeholder="Username">
             </div>
             <button id="signUpButton">Sign up</button>
             <p id="emailFormatWrong" class="somethingWrong"></p>
-            <p id="passwordFormatWrong" class="somethingWrong"></p>
+            <div class="remember">
+                <label for="rememberCheck">Remember me</label>
+                <input type="checkbox" id="rememberCheck">
+            </div>
             <p id="p">Already have an account? <a href="signIn.html">Log in</a></p>
         </div>
     </div>

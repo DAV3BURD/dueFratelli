@@ -9,12 +9,15 @@ class Main {
 
         // Connecting UserController and UserView
         this.view.setController(this.controller);
+        console.log("UserController instantiated");
         // Connecting UserView and Controller
         this.controller.setView(this.view);
+        console.log("UserView instantiated");
     }
 }
 
 // Event listener for Main class
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded");
     new Main();
 });

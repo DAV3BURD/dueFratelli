@@ -10,7 +10,7 @@ class User {
         this.password = password;
         this.username = username;
 
-        this.userService = new UserService();
+        //this.userService = new UserService();
 
         // Validate password and Email Boolean
         this._isEmailValid = this.checkEmail();
@@ -31,28 +31,28 @@ class User {
     get isPasswordValid() {
         return this._isPasswordValid;
     }
+    /*
+    isPasswordValid () {
+        return this.getPasswordValidationRules().every(rule => rule.valid);
+    }
+    */
+
+    getPasswordValidationRules() {
+        return [
+            { id: "length", valid: this.password.length >= 8 },
+            { id: "number", valid: /[0-9]/.test(this.password) },
+            { id: "uppercase", valid: /[A-Z]/.test(this.password) },
+            { id: "specialChar", valid: /[!@#$%^&*]/.test(this.password) },
+            
+        ]
+    }
 
     /**
      * Function to see if the password the user enters is valid.
      * @returns true if the password length is more then 8 letters and if the containsSpecialChar return true.
      */
     checkPassword() {
-        return this.password.length >= 8 && this.containsSpecialChar();
-    }
-
-    /**
-     * Function to check if the password the user enters contains a special character.
-     * @returns true if the password contains a special character.
-     */
-    containsSpecialChar() {
-        const specialChar = "!@#$%^&*()\-+={}[\]:;'<>,.?\/|\\"; 
-
-        for (let i = this.password.length - 1; i >= 0; i--) {
-            if (specialChar.includes(this.password[i])) {
-                return true;
-            }
-        }
-        return false;
+        return this.getPasswordValidationRules().every(rule => rule.valid);
     }
 
     /**
@@ -73,16 +73,15 @@ class User {
      * @returns true if checkPassword() and checkEmail() booth return true.
      */
     isValid() {
-        //this.updateValidation();
-        return this.isPasswordValid && this.isEmailValid;
+        return this._isPasswordValid && this._isEmailValid;
     }
 
     /**
      * Function that will be called upon if the user credentials is valid. The function calls 
      */
-    async registerUser() {
-        this.userService.login(this.email, this.password, this.username);
-    }
+    //async registerUser() {
+      //  this.userService.login(this.email, this.password, this.username);
+    //}
 
     
 }

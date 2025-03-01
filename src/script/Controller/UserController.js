@@ -4,34 +4,39 @@
 
 class UserController {
     constructor() {
-        
+        console.log("UserController instantiated i Usercontroller");
+        this.isEmailValid = false;
+        this.isPasswordValid = false;
     }
 
     handleUserInput(email, password, username) {
 
         const user = new User(email, password, username);
 
-        console.log("Password:", password);
-        console.log("Password valid:", user.isPasswordValid);
-        console.log("Email valid:", user.isEmailValid);
-        
-        this.view.updateUI({
-                isEmailValid: user.isEmailValid,
-                isPasswordValid: user.isPasswordValid
-        });
-        
+        this.view.updateUIEmail({ isEmailValid: user.isEmailValid });
+        // En dubbel koll om användaren verkligen stämmer
         if (user.isValid()) {
-            console.log("User is valid")
 
             this.view.showSuccessMessage()
-            
             // Only call this when the users credentials is valid
-            this.user.login();
-        } else {
-            console.log("Error Messages:");
-            console.log("isPasswordValid:", user.isPasswordValid);
-            console.log("isEmailValid:", user.isEmailValid);
-        }
+            //user.login();
+
+            window.location.href = "../components/index.html";
+        } 
+    }
+
+    isFormValid(email, password) {
+        const user = new User(email, password, "");
+
+        this.isEmailValid = user.isEmailValid;
+        this.isPasswordValid = user.isPasswordValid;
+        return user.isValid();
+    }
+
+    validatePassword(password) {
+        const user = new User("", password, "");
+        const rules = user.getPasswordValidationRules();
+        this.view.updatePasswordValidation(rules);
     }
 
     setView(view) {
