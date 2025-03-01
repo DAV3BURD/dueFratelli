@@ -29,13 +29,62 @@
                     <a href="/" class="button">Help?</a>
                 </div>
                 <div id="Chooser">
-                    <input type="file" id="fileInput" class="hidden"> <!-- hidden är en ful sak som försvinner mha CSS -->
+                    <input type="file" id="fileInput" class="hidden" multiple size="50" onchange="myFunction()"> <!-- hidden är en ful sak som försvinner mha CSS -->
                     <label for="fileInput" class="uploadButton">Choose File</label> 
                 </div>
 
             </div>
         </nav>
     </header>
+
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <div class="hero-container">
+                <p id="demo"></p>
+        
+                <script>
+                    // Create an array to store all uploaded files
+                    let fileList = [];
+        
+                    function myFunction() {
+                        var x = document.getElementById("fileInput");
+                        var txt = "";
+        
+                        if ('files' in x) {
+                            if (x.files.length == 0) {
+                                txt = "Select one or more files.";
+                            } else {
+                                // Add new files to the global list
+                                for (var i = 0; i < x.files.length; i++) {
+                                    fileList.push(x.files[i]);
+                                }
+        
+                                // Display all files in the list in order
+                                for (var i = 0; i < fileList.length; i++) {
+                                    var file = fileList[i];
+                                    if ('name' in file) {
+                                        var fileURL = URL.createObjectURL(file);
+                                        txt += `<br><strong style="color: white;"><span>${i + 1}:</span> <a href="${fileURL}" target="_blank" style="color: white; text-decoration: none;">${file.name}</a></strong><br>`;
+                                    }
+
+                                }
+                            }
+                        } else {
+                            if (x.value == "") {
+                                txt += "Select one or more files.";
+                            } else {
+                                txt += "The files property is not supported by your browser!";
+                                txt += "<br>The path of the selected file: " + x.value;
+                            }
+                        }
+        
+                        // Update the content of <p id="demo">
+                        document.getElementById("demo").innerHTML = txt;
+                    }
+                </script>
+            </div>
+        </section>
+        
 
     <script src="app.js"></script>
     
